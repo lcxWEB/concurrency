@@ -14,9 +14,9 @@
 	<name>concurrency</name>
 	<description>concurrency</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+	<!--<properties>-->
+		<!--<java.version>1.8</java.version>-->
+	<!--</properties>-->
 
 	<dependencies>
 		<dependency>
@@ -34,22 +34,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.deepoove</groupId>
-			<artifactId>poi-tl</artifactId>
-			<version>1.7.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-scratchpad</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>cn.hutool</groupId>
-			<artifactId>hutool-all</artifactId>
-			<version>4.5.6</version>
 		</dependency>
 	</dependencies>
 

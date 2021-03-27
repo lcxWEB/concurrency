@@ -3,7 +3,7 @@ package com.example.concurrency.thread;
 /**
  * The Thread class defines a number of methods useful for thread management.
  * These include static methods, which provide information about, or affect the status of, the thread invoking the method.
- * The other methods are invoked from other threads involved in managing the thread and Thread object.
+ * The other methods are invoked from other threads involved in managing the thread and Thread cooperate.
  * We'll examine some of these methods in the following sections.
  */
 public class HelloRunnable implements Runnable {
@@ -21,7 +21,6 @@ public class HelloRunnable implements Runnable {
 
         }
         thread.interrupt();
-
     }
 
     public void run() {
@@ -37,6 +36,7 @@ public class HelloRunnable implements Runnable {
             sum = sum + i;
             System.out.println(sum);
         }
+
     }
 
 }
