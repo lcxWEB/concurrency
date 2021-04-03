@@ -1,4 +1,4 @@
-package com.example.concurrency.juc;
+package com.example.concurrency.threadlocal;
 
 import java.sql.Time;
 import java.util.concurrent.LinkedBlockingDeque;

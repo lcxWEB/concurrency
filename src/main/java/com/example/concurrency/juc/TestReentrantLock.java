@@ -10,11 +10,10 @@ public class TestReentrantLock {
         ReentrantLock lock = new ReentrantLock();
         lock.lock();
         //synchronized (TestReentrantLock.class) {
-            i++;
+        i++;
         //}
 
         lock.unlock();
 
-        //synchronized 程序员的丽春院 JUC
     }
 }

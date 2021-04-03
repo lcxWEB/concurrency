@@ -1,4 +1,4 @@
-package com.example.concurrency.juc;
+package com.example.concurrency.cooperate;
 
 import java.util.concurrent.TimeUnit;
 
