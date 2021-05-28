@@ -1,24 +1,43 @@
 package com.example.concurrency.threadlocal;
 
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author: lichunxia
  * @create: 2021-03-21 21:07
  */
 public class ThreadLocalExample1 {
 
-    public static void main(String[] args) {
-        ThreadLocal threadLocal1 = new ThreadLocal();
-        ThreadLocal threadLocal2 = new ThreadLocal();
-        Thread thread1 = new Thread(() -> {
-            threadLocal1.set(1);
-            threadLocal2.set(1);
-        });
-        Thread thread2 = new Thread(() -> {
-            threadLocal1.set(2);
-            threadLocal2.set(2);
-        });
-        thread1.start();
-        thread2.start();
+    // (1)
+    final static ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5,
+            5,
+            1, TimeUnit.MINUTES,
+            new LinkedBlockingQueue<>());
+    // (2)
+    final static ThreadLocal<LocalVariable> localVariable = new ThreadLocal<>();
+
+    public static void main(String[] args) throws InterruptedException {
+        // (3)
+        Thread.sleep(5000 * 4);
+        for (int i = 0; i < 50; ++i) {
+            poolExecutor.execute(new Runnable() {
+                public void run() {
+                    // (4)
+                    localVariable.set(new LocalVariable());
+                    // (5)
+                    System.out.println("use local varaible" + localVariable.get());
+                    localVariable.remove();
+                }
+            });
+        }
+        // (6)
+        System.out.println("pool execute over");
+    }
+
+    static class LocalVariable {
+        private Long[] a = new Long[1024 * 1024];
     }
 
 }

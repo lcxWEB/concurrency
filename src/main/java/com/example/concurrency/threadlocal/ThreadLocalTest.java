@@ -10,6 +10,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadLocalTest {
 
+    private int i = 0;
+
     public static void main(String[] args) {
         ThreadLocal<String> threadLocal = new ThreadLocal<>();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 1,
@@ -41,6 +43,8 @@ public class ThreadLocalTest {
         });
 
         threadPoolExecutor.shutdown();
+
+
     }
 
 
